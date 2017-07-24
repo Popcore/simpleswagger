@@ -1,9 +1,9 @@
-#Simple Swagger API
+# Simple Swagger API
 This application is a simple HTTP server documented using Swagger.
 
 It's purpose is to demonstrate some of possible comment annotations and features that are available to turn go code into a fully compliant swagger 2.0 spec.
 
-##Dependencies
+## Dependencies
 The Simple Swagger API requires the following tool:
 
 ### Golang
@@ -28,7 +28,7 @@ The app runs at `http://localhost:3001` and the only available endpoint is `http
 
 Items can be filtered by specifing their id as query argument (e.g `http://localhost:3001/items?q=1`).
 
-##Swagger Specs and UI
+## Swagger Specs and UI
 
 Swagger specs can be generated running
 ```
@@ -40,7 +40,7 @@ The API documentation can be visualized through a user interface running
 swagger serve swagger.json -F redoc
 ```
 
-##Learn More
+## Learn More
 More information about GoSwagger can be found at:
 https://goswagger.io/#docs
 
