@@ -11,10 +11,10 @@
   ],
   "swagger": "2.0",
   "info": {
-    "description": "the purpose of this application is to provide an application\nthat is using plain go code to define an API\n\nThis should demonstrate all the possible comment annotations\nthat are available to turn go code into a fully compliant swagger 2.0 spec",
+    "description": "This application is a simple HTTP server documented using Swagger.\n\nIt will demonstrate some of possible comment annotations and features\nthat are available to turn go code into a fully compliant swagger 2.0 spec.",
     "title": "Simple Swagger API",
     "contact": {
-      "email": "smallzed@gmail.com"
+      "email": "marco@thingful.net"
     },
     "license": {
       "name": "MIT",
@@ -24,62 +24,152 @@
   },
   "host": "localhost",
   "paths": {
-    "/pets": {
+    "/items/{item-code}": {
       "get": {
-        "description": "This will show all available pets by default.\nYou can get the pets that are out of stock",
+        "description": "This endpoint will greet you with a welcome message.",
         "tags": [
-          "pets"
+          "item"
         ],
-        "summary": "Lists pets filtered by some parameters.",
-        "operationId": "users",
-        "security": [
+        "summary": "Returns an item description.",
+        "operationId": "items-operation",
+        "parameters": [
           {
-            "api_key": []
-          },
-          {
-            "oauth": [
-              "read",
-              "write"
-            ]
+            "type": "string",
+            "x-go-name": "Query",
+            "description": "the path name",
+            "name": "q",
+            "in": "query",
+            "required": true
           }
         ],
         "responses": {
           "200": {
-            "$ref": "#/responses/someResponse"
+            "$ref": "#/responses/itemResponse"
           },
-          "default": {
-            "$ref": "#/responses/genericError"
+          "404": {
+            "$ref": "#/responses/errorNotFound"
           }
         }
       }
     }
   },
-  "responses": {
-    "genericError": {
-      "description": "A GenericError is the default error message that is generated.",
-      "schema": {
-        "type": "object",
-        "required": [
-          "Message"
-        ],
-        "properties": {
-          "FieldName": {
-            "description": "An optional field name to which this validation applies",
+  "definitions": {
+    "Data": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Item"
+          },
+          "x-go-name": "Items"
+        }
+      },
+      "x-go-package": "github.com/popcore/simpleswagger/types"
+    },
+    "Err": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/ErrorResponse"
+        }
+      },
+      "x-go-package": "github.com/popcore/simpleswagger/types"
+    },
+    "ErrorResponse": {
+      "description": "ErrorResponse is the object used to wrap errors information",
+      "type": "object",
+      "required": [
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "description": "The HTTP status code",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "HTTPStatus"
+        },
+        "message": {
+          "description": "The error message",
+          "type": "string",
+          "x-go-name": "Message"
+        }
+      },
+      "x-go-package": "github.com/popcore/simpleswagger/types"
+    },
+    "Item": {
+      "description": "An item is a generic data resource used by the demo application.\n\nAn item must have an id and a name, as well as an optional colour property.",
+      "type": "object",
+      "title": "Item represents the item for this application",
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "colour": {
+          "description": "the colour of the item",
+          "type": "string",
+          "x-go-name": "Colour"
+        },
+        "id": {
+          "description": "the item identifier",
+          "type": "integer",
+          "format": "int64",
+          "minimum": 1,
+          "x-go-name": "ID"
+        },
+        "name": {
+          "description": "the name of the item",
+          "type": "string",
+          "minLength": 3,
+          "x-go-name": "Name"
+        }
+      },
+      "x-go-package": "github.com/popcore/simpleswagger/types"
+    },
+    "ResponseBody": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "The HTTP code",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Code"
+        },
+        "details": {
+          "description": "Details about the HTTP request made by the client",
+          "type": "array",
+          "items": {
             "type": "string"
           },
-          "Message": {
-            "description": "The validation message",
-            "type": "string"
-          }
+          "x-go-name": "Details"
+        },
+        "message": {
+          "description": "The response message",
+          "type": "string",
+          "x-go-name": "Message"
         }
+      },
+      "x-go-package": "github.com/popcore/simpleswagger/types"
+    }
+  },
+  "responses": {
+    "errorNotFound": {
+      "description": "Error Not Found",
+      "schema": {
+        "$ref": "#/definitions/Err"
       }
     },
-    "someResponse": {
-      "description": "A GenericResponse is the default response returned.",
-      "headers": {
-        "message": {
-          "type": "string"
-        }
+    "itemResponse": {
+      "description": "Success",
+      "schema": {
+        "$ref": "#/definitions/Data"
+      }
+    },
+    "successResponse": {
+      "description": "Success",
+      "schema": {
+        "$ref": "#/definitions/ResponseBody"
       }
     }
   }
