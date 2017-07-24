@@ -1,7 +1,7 @@
 # Simple Swagger API
 This application is a simple HTTP server documented using Swagger.
 
-It's purpose is to demonstrate some of possible comment annotations and features that are available to turn go code into a fully compliant swagger 2.0 spec.
+Its purpose is to demonstrate some of possible comment annotations and features that are available to turn go code into a fully compliant swagger 2.0 spec.
 
 ## Dependencies
 The Simple Swagger API requires the following tool:
