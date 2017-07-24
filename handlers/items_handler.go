@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"sort"
 
-	"github.com/popcore/simpleswagger/types"
+	"github.com/thingful/simpleswagger/types"
 )
 
 // swagger:route GET /items item items-operation

@@ -25,7 +25,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/popcore/simpleswagger/handlers"
+	"github.com/thingful/simpleswagger/handlers"
 )
 
 func main() {

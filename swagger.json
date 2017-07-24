@@ -65,7 +65,7 @@
           "x-go-name": "Items"
         }
       },
-      "x-go-package": "github.com/popcore/simpleswagger/types"
+      "x-go-package": "github.com/thingful/simpleswagger/types"
     },
     "Err": {
       "type": "object",
@@ -74,7 +74,7 @@
           "$ref": "#/definitions/ErrorResponse"
         }
       },
-      "x-go-package": "github.com/popcore/simpleswagger/types"
+      "x-go-package": "github.com/thingful/simpleswagger/types"
     },
     "ErrorResponse": {
       "description": "ErrorResponse is the object used to wrap errors information",
@@ -95,7 +95,7 @@
           "x-go-name": "Message"
         }
       },
-      "x-go-package": "github.com/popcore/simpleswagger/types"
+      "x-go-package": "github.com/thingful/simpleswagger/types"
     },
     "Item": {
       "description": "An item is a generic data resource used by the demo application.\n\nAn item must have an id and a name, as well as an optional colour property.",
@@ -125,7 +125,7 @@
           "x-go-name": "Name"
         }
       },
-      "x-go-package": "github.com/popcore/simpleswagger/types"
+      "x-go-package": "github.com/thingful/simpleswagger/types"
     },
     "ResponseBody": {
       "type": "object",
@@ -150,7 +150,7 @@
           "x-go-name": "Message"
         }
       },
-      "x-go-package": "github.com/popcore/simpleswagger/types"
+      "x-go-package": "github.com/thingful/simpleswagger/types"
     }
   },
   "responses": {
