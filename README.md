@@ -52,7 +52,7 @@ make doc_ui   # runs the user interface
 
 ## Learn More
 More information about GoSwagger can be found at:
-https://goswagger.io/#docs
+https://goswagger.io/
 
 To lean more about the  Swagger project please visit:
 https://swagger.io/
