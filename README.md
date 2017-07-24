@@ -43,7 +43,7 @@ The API documentation can be visualized through a user interface running
 swagger serve swagger.json -F redoc
 ```
 
-The Makefile included in this repository can be used to issue the commands above
+The Makefile included in this repository can also be used to issue the same commands described above
 ```
 make doc_spec # generates spec
 
@@ -54,5 +54,5 @@ make doc_ui   # runs the user interface
 More information about GoSwagger can be found at:
 https://goswagger.io/
 
-To lean more about the  Swagger project please visit:
+To lean more about the Swagger project please visit:
 https://swagger.io/
