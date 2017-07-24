@@ -11,12 +11,12 @@ The Simple Swagger API requires the following tools:
 To install and get started with the Go programming language see the [official documentation]( https://golang.org/doc/install?download=go1.5.windows-amd64.msi2).
 
 ### Go Swagger
-The easier way to install `go swagger` is to install it from source. Once Golang is installed it can be done by running
+The easier way to install `go swagger` is from source. Once Golang is installed it can be done by running
 ```
 go get -u github.com/go-swagger/go-swagger/cmd/swagger
 ```
 
-For alternative ways to install the package please see:
+For alternative ways to build the package please see:
 https://goswagger.io/#docs
 
 
