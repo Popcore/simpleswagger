@@ -21,7 +21,7 @@ type ErrorNotFound struct {
 }
 
 type Err struct {
-	E ErrorResponse `json:"error"`
+	Resp ErrorResponse `json:"error"`
 }
 
 // NewErrorNotFound returns a ErrorNotFound struct populate with the
@@ -29,7 +29,7 @@ type Err struct {
 func NewErrorNotFound(message string) ErrorNotFound {
 	return ErrorNotFound{
 		Body: Err{
-			E: ErrorResponse{
+			Resp: ErrorResponse{
 				HTTPStatus: http.StatusNotFound,
 				Message:    message,
 			},
