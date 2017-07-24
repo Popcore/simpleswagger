@@ -24,19 +24,19 @@
   },
   "host": "localhost",
   "paths": {
-    "/items/{item-code}": {
+    "/items": {
       "get": {
-        "description": "This endpoint will greet you with a welcome message.",
+        "description": "The items returned can be optionally filtered .",
         "tags": [
-          "item"
+          "items"
         ],
-        "summary": "Returns an item description.",
+        "summary": "Returns a collection of items item description.",
         "operationId": "items-operation",
         "parameters": [
           {
             "type": "string",
             "x-go-name": "Query",
-            "description": "the path name",
+            "description": "the item unique identifier",
             "name": "q",
             "in": "query",
             "required": true
@@ -98,7 +98,7 @@
       "x-go-package": "github.com/thingful/simpleswagger/types"
     },
     "Item": {
-      "description": "An item is a generic data resource used by the demo application.\n\nAn item must have an id and a name, as well as an optional colour property.",
+      "description": "An item is a generic data resource used by this demo application.\n\nAn item must have an id and a name, as well as an optional colour property.",
       "type": "object",
       "title": "Item represents the item for this application",
       "required": [

@@ -8,17 +8,17 @@ import (
 	"github.com/thingful/simpleswagger/types"
 )
 
-// swagger:route GET /items item items-operation
+// ItemsHander is responsible for retuning a list of items, optionally filtered
+// by ID.
+//
+// swagger:route GET /items items items-operation
 //
 // Returns a collection of items item description.
-//
-// The items returned can be optionally filtered .
+// The items returned can be optionally filtered by their identifier.
 //
 // Responses:
 // 200: itemResponse
 // 404: errorNotFound
-//
-// swagger:parameters hello world
 func ItemsHander(w http.ResponseWriter, r *http.Request) {
 	var items []types.Item
 
